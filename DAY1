@@ -1,3 +1,5 @@
+1.First Unique Character in a String
+
 class Solution {
     public int firstUniqChar(String s) {
         HashMap<Character,Integer> map = new  HashMap<>();
