@@ -1,0 +1,36 @@
+class Result {
+
+    /*
+     * Complete the 'sockMerchant' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER n
+     *  2. INTEGER_ARRAY ar
+     */
+
+    public static int sockMerchant(int n, List<Integer> ar) {
+        HashMap<Integer,Integer> map = new HashMap<>();
+        HashSet<Integer> set= new HashSet<>();
+        
+        for(int i=0;i<n;i++){
+            set.add(ar.get(i));
+            if(map.containsKey(ar.get(i))){
+                map.put(ar.get(i),map.get(ar.get(i))+1);
+            }
+            else{
+                map.put(ar.get(i),1);
+            }
+            
+        }
+        ArrayList<Integer> l = new ArrayList<>(set);
+        int n1 = set.size();
+        int count =0;
+        for(int i=0;i<n1;i++){
+            count+=map.get(l.get(i))/2;
+        }
+        return count;
+
+    }
+
+}
