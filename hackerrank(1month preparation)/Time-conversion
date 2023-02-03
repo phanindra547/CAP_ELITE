@@ -5,8 +5,7 @@ import java.text.*;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
-
-class Result {
+  class Result {
 
     /*
      * Complete the 'timeConversion' function below.
@@ -16,42 +15,49 @@ class Result {
      */
 
     public static String timeConversion(String s) {
-    int hour = Integer.parseInt(s.substring(0,2));
-    int n = s.length();
-    String r = s.substring(0,8);
-    String a = s.substring(2,8);
-    if(s.substring(n-2,n)=="AM"){
-        if(hour>=0 &&  hour <12){
+        int n = s.length();
+        int hour = Integer.parseInt(s.substring(0,2));
+        String a = s.substring(2,n-2);
+        String g = s.substring(n-2);
+        if(g.equals("PM")){
             
-            return r;
+            if(hour<12){
+                hour =hour+12;
+                String k = Integer.toString(hour);
+                return k+a;
+            }
+            else{
+                return s.substring(0,n-2);
+            }
             
+        
         }
-        hour-=12;
-        String k =String.valueOf(hour);
-        if(k.length()==1){
-            k="0"+k;
-            a=k+r;
+            
+            
+        else{
+            
+            if(hour<12){
+                return s.substring(0,n-2);
+            }
+            else{
+                hour-=12;
+                String k = Integer.toString(hour);
+                if(hour<10){
+                    k=k+"0";
+                }
+                return k+a;
+            }
+                
+                
+        }
+        
         }
     }
-    if(s.substring(n-2,n)=="PM"){
-        if(hour>=12 &&  hour <=23){
+
+
+
             
-            return r;
-            
-        }
-        hour+=12;
-        String k =String.valueOf(hour);
-        a=k+r;
-        }
-    
-    return a;
-    
-
-
-    }
-
-}
-
+   
 public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
