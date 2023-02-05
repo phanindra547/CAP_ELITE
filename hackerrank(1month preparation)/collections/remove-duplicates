@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s =sc.nextLine();
+        removeduplicates(s);
+        
+        
+    }
+    static void removeduplicates(String s){
+        LinkedHashSet<Character> k = new LinkedHashSet<>();
+        for(int i=0;i<s.length();i++){
+            k.add(s.charAt(i));
+        }
+        for(char ch:k){
+            System.out.print(ch);
+        }
+    }
+}
