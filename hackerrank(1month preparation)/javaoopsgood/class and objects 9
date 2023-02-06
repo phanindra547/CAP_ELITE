@@ -1,0 +1,53 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+class Person{
+    private int age;
+    public static int noOfPersons;
+    public Person(int n){
+        this.age=n;
+        noOfPersons++;
+    }
+    public int getAge(){
+        return age;
+    }
+    public void yearPasses(){
+        age++;
+    }   
+    public void amIOld(){
+        if(age>=13 & age<18){
+            System.out.println("You are a teenager.");
+        }
+        else if(age>0 & age<13){
+            System.out.println("You are young.");
+        }
+        else if(age>=18){
+            System.out.println("You are old.");
+        }
+        else{
+            System.out.println("Age is not valid, setting age to 0.");
+            System.out.println("You are young.");
+        }
+        
+    }
+}
+public class Answer{
+    public static void main(String args[]){
+        Scanner S = new Scanner(System.in);
+        int A = S.nextInt();
+        for(int i=0;i<A;i++){
+            int age = S.nextInt();
+            Person a = new Person(age);
+            a.amIOld();
+            for(int j=0;j<3;j++){
+                a.yearPasses();
+            }
+            a.amIOld();
+            System.out.println();
+        }
+        S.close();
+    }
+}
